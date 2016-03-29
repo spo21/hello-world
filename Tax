@@ -1,0 +1,57 @@
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+    double salary;
+    cout << "This program will calculate tax and NI based on an annual income.\n"
+    << "What is the annual income you would like to calculate?" << endl;
+    cin >> salary;
+
+    if(salary <= 8064){
+
+        cout << "Net income:\t " << salary << "\nTotal tax:\t "
+        << 0 << "\nTotal NI:\t " << 0;
+            }
+
+    else if(8064 < salary && salary <= 10600){
+
+        double NI;
+        NI = (salary - 8064)*0.12;
+        cout << "Net income:\t " << salary - NI << "\nTotal tax:\t "
+        << 0 << "\nTotal NI:\t " << NI;
+    }
+
+    else if(10600 < salary && salary <= 42385){
+
+        double TAX;
+        TAX = (salary - 10600)*0.2;
+        double NI;
+        NI = (salary - 8064)*0.12;
+         cout << "Net income:\t " << salary - (NI + TAX) << "\nTotal tax:\t "
+        << TAX << "\nTotal NI:\t " << NI;
+    }
+    else if(42385 < salary && salary <= 160600){
+
+        double TAX;
+        TAX = (42385 - 10600)*0.2 + (salary - 42385)*0.4;
+        double NI;
+        NI = (42385 - 8064)*0.12 +(salary - 42385)*0.02;
+         cout << "Net income:\t " << salary - (NI + TAX) << "\nTotal tax:\t "
+        << TAX << "\nTotal NI:\t " << NI;
+    }
+
+    else if(salary > 160600){
+
+        double TAX;
+        TAX =(42485-10600)*0.2 + (160600 - 42385)*0.4 + (salary - 150000)*0.45;
+        double NI;
+        NI = (42385 - 8064)*0.12 +(salary - 42385)*0.02;
+         cout << "Net income:\t " << salary - (NI + TAX) << "\nTotal tax:\t "
+        << TAX << "\nTotal NI:\t " << NI;
+    }
+
+
+    return 0;
+}
